@@ -3,7 +3,7 @@
 function samplePlots(sample) {
     // Use d3.json to load and retrieve the samples.json file 
     d3.json("data/samples.json").then((data) => {
-    //   console.log(data);
+      console.log(data);
       // Create a variable that holds the samples array. 
       let sampleArray = data.samples.filter(obj => obj.id == sample);
       // Create a variable that holds the first sample in the array.
@@ -18,11 +18,10 @@ function samplePlots(sample) {
       let metaResult = metaArray[0];
       // Create a variable that holds the washing frequency
       let washingFreq = parseInt(metaResult.wfreq);
-   
+      
       // Create the yticks for the bar chart.
-      // Hint: Get the the top 10 otu_ids and map them in descending order  
-      //  so the otu_ids with the most bacteria are last. 
-  
+      // Get the the top 10 otu_ids and map them in descending order  
+        
       let yticks = otuIDs.slice(0,10).reverse().map(function (elem) {return `OTU ${elem}`});
       let xticks = sampleValues.slice(0,10).reverse();
       let labels = otuLabels.slice(0,10).reverse();
@@ -60,7 +59,7 @@ function samplePlots(sample) {
       // Create the layout for the bubble chart.
       let bubbleLayout = {
         height: 700,
-        width: otuIDs,
+        // width: sampleValues,
         title: "Bacteria Cultures Per Sample",
         xaxis: {title: "OTU ID"},
         showlegend: false
@@ -73,18 +72,17 @@ function samplePlots(sample) {
       let gaugeTrace = {
         value: washingFreq,
         title: {text: "Belly Button Washing Frequency<br>Scrubs per Week"},
-        type: "indicator",
-        delt: {reference: 380},
-        mode: "gauge+number+delta",
+        type: "indicator",        
+        mode: "gauge+number",
         
         gauge: {
           axis: {range: [0,10]},
           steps: [
-            {range: [0,2], color:"#c1c63d"},
-            {range: [2,4], color:"#9FE2BF"},
-            {range: [4,6], color:"#DAF7A6"},
-            {range: [6,8], color:"#AF7AC5"},
-            {range: [8,10], color:"#A3E4D7"}
+            {range: [0,2], color:"#D0ECE7"},
+            {range: [2,4], color:"#A2D9CE"},
+            {range: [4,6], color:"#73C6B6"},
+            {range: [6,8], color:"#45B39D"},
+            {range: [8,10], color:"#16A085"}
           ]
         }
       };

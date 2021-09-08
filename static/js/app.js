@@ -18,20 +18,21 @@ function init() {
 // Initialize the selection
 init();
 
-// optionChanged function is called in html
+// Create function optionChanged called in html
 function optionChanged(newSample) {
     // console.log(newSample);
     demographicInfo(newSample);
     samplePlots(newSample);
 };
 
-// buildMetadata function called in optionChanged
+// Create function demographicInfo called in function optionChanged
 function demographicInfo(sample) {
     d3.json("data/samples.json").then((data) => {
       let demoInfo = data.metadata.filter(sampleObj => sampleObj.id == sample);
-
-      //demoInfo returned like an array =[0]
-      let result = demoInfo[0]; 
+    //   console.log(demoInfo);
+      //demoInfo returned like an array
+      let result = demoInfo[0];
+    //   Create a panel using html id sample-metadata 
       let PANEL = d3.select("#sample-metadata");
       
       //Clear panel for the next selection
