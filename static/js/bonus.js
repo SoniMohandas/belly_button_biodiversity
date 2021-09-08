@@ -73,7 +73,8 @@ function samplePlots(sample) {
         value: washingFreq,
         title: {text: "Belly Button Washing Frequency<br>Scrubs per Week"},
         type: "indicator",
-        mode: "gauge+number",
+        delt: {reference: 380},
+        mode: "gauge+number+delta",
         gauge: {
           axis: {range: [0,10]},
           steps: [
@@ -87,7 +88,7 @@ function samplePlots(sample) {
       };
   
       let gaugeLayout = {
-        width: 600, height: 450, margin: {t: 0, b: 0}
+        width: 500, height: 450, margin: {t: 0, b: 0}
       };
   
       Plotly.newPlot("gauge", [gaugeTrace], gaugeLayout);
