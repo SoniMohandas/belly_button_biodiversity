@@ -53,13 +53,14 @@ function samplePlots(sample) {
         mode: 'markers',
         marker: {
           size: sampleValues,
-          color: otuIDs
+          color: d3.schemePaired
         }
       };
       
       // Create the layout for the bubble chart.
       let bubbleLayout = {
         height: 700,
+        width: otuIDs,
         title: "Bacteria Cultures Per Sample",
         xaxis: {title: "OTU ID"},
         showlegend: false
@@ -75,6 +76,7 @@ function samplePlots(sample) {
         type: "indicator",
         delt: {reference: 380},
         mode: "gauge+number+delta",
+        
         gauge: {
           axis: {range: [0,10]},
           steps: [
@@ -88,7 +90,7 @@ function samplePlots(sample) {
       };
   
       let gaugeLayout = {
-        width: 500, height: 450, margin: {t: 0, b: 0}
+        width: 550, height: 450, margin: {t: 0, b: 0}
       };
   
       Plotly.newPlot("gauge", [gaugeTrace], gaugeLayout);
