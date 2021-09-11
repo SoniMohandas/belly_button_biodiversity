@@ -22,7 +22,7 @@ function samplePlots(sample) {
       // Create the yticks for the bar chart.
       // Get the the top 10 otu_ids and map them in descending order  
         
-      let yticks = otuIDs.slice(0,10).reverse().map(function (elem) {return `OTU ${elem}`});
+      let yticks = otuIDs.slice(0,10).reverse().map(elem => {return `OTU ${elem}`});
       let xticks = sampleValues.slice(0,10).reverse();
       let labels = otuLabels.slice(0,10).reverse();
   
@@ -52,8 +52,8 @@ function samplePlots(sample) {
         text: otuLabels,
         mode: 'markers',
         marker: {
-          size: sampleValues,
-          color: d3.schemePaired
+          size: sampleValues.map(value =>Math.log(value)*10),
+          color: d3.schemePaired          
         }
       };
       
@@ -63,7 +63,7 @@ function samplePlots(sample) {
         width: 1135,
         title: "Bacteria Cultures Per Sample",
         xaxis: {title: "OTU ID"},
-        margin: {t: 100, b: 0},
+        margin: {t: 50, b: 50},
         showlegend: false
       };
       
