@@ -89,7 +89,7 @@ function samplePlots(sample) {
           ]
         }
       };
-  
+    //Gauge layout 
     let gaugeLayout = {
         width: 550, height: 450, margin: {t: 0, b: 0},           
       };
