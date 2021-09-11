@@ -1,14 +1,13 @@
 // Init function takes ID num and sets them as
 // options of the dropdown menu
-function init() {
+function init(){
     let selector = d3.select("#selDataset");
   
     d3.json("data/samples.json").then((data) => {
     //   console.log(data);
       let sampleNames = data.names;
       sampleNames.forEach((sample) => {
-        selector
-          .append("option")
+        selector.append("option")
           .text(sample)
           .property("value", sample);
       });
@@ -26,7 +25,7 @@ function optionChanged(newSample) {
 };
 
 // Create function demographicInfo called in function optionChanged
-function demographicInfo(sample) {
+function demographicInfo(sample){
     d3.json("data/samples.json").then((data) => {
       let demoInfo = data.metadata.filter(sampleObj => sampleObj.id == sample);
     //   console.log(demoInfo);

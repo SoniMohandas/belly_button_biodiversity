@@ -43,9 +43,10 @@ function samplePlots(sample) {
       };
       // Plotly to plot the data with the layout. 
       Plotly.newPlot("bar", [barTrace], barLayout);
-  
-      // Create the trace for the bubble chart.
-      let bubbleTrace = {
+
+    // Create the trace for the bubble chart.
+      
+    let bubbleTrace = {
         x: otuIDs,
         y: sampleValues,
         text: otuLabels,
@@ -57,19 +58,20 @@ function samplePlots(sample) {
       };
       
       // Create the layout for the bubble chart.
-      let bubbleLayout = {
+    let bubbleLayout = {
         height: 700,
-        // width: sampleValues,
+        width: 1135,
         title: "Bacteria Cultures Per Sample",
         xaxis: {title: "OTU ID"},
+        margin: {t: 100, b: 0},
         showlegend: false
       };
       
       // Plotly to plot the data with the layout.
-      Plotly.newPlot("bubble", [bubbleTrace], bubbleLayout);   
+      Plotly.react("bubble", [bubbleTrace], bubbleLayout);   
   
       // Gauge chart
-      let gaugeTrace = {
+    let gaugeTrace = {
         value: washingFreq,
         title: {text: "Belly Button Washing Frequency<br>Scrubs per Week"},
         type: "indicator",        
@@ -87,11 +89,10 @@ function samplePlots(sample) {
         }
       };
   
-      let gaugeLayout = {
-        width: 550, height: 450, margin: {t: 0, b: 0}
+    let gaugeLayout = {
+        width: 550, height: 450, margin: {t: 0, b: 0},           
       };
-  
-      Plotly.newPlot("gauge", [gaugeTrace], gaugeLayout);
-  
-    });
+
+      Plotly.newPlot("gauge", [gaugeTrace], gaugeLayout);  
+    });     
 };
