@@ -53,13 +53,14 @@ function samplePlots(sample) {
         mode: 'markers',
         marker: {
           size: sampleValues.map(value =>Math.log(value)*10),
-          color: d3.schemePaired          
+          color: otuIDs,
+          colorscale: "Earth"         
         }
       };
       
       // Create the layout for the bubble chart.
     let bubbleLayout = {
-        height: 700,
+        height: 500,
         width: 1135,
         title: "Bacteria Cultures Per Sample",
         xaxis: {title: "OTU ID"},
