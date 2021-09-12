@@ -31,15 +31,15 @@ init();
 function demographicInfo(nextSample){
     d3.json("data/samples.json").then((data) => {
       let demoInfo = data.metadata.filter(newObj => newObj.id == nextSample);
-    //   console.log(demoInfo);
+      //   console.log(demoInfo);
       //demoInfo returned like an array
       let result = demoInfo[0];
-    //   Create a panel using html id sample-metadata 
+      //   Create a panel using html id sample-metadata 
       let panel = d3.select("#sample-metadata");      
       //Clear panel for each selection
       panel.html("");
-    // Append metadata keys and values for each selection
-    Object.entries(result).forEach(([key, value]) => {
+      // Append metadata keys and values for each selection
+      Object.entries(result).forEach(([key, value]) => {
         panel.append("p").html(`<strong>${key}: </strong> ${value}`)
     });
     });
