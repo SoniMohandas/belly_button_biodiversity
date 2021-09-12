@@ -45,8 +45,7 @@ function samplePlots(sample) {
       // Plotly to plot the data with the layout. 
       Plotly.newPlot("bar", [barTrace], barLayout);
 
-    // Create the trace for the bubble chart.
-      
+    // Create the trace for the bubble chart.      
     let bubbleTrace = {
         x: otuIDs,
         y: sampleValues,
@@ -56,7 +55,7 @@ function samplePlots(sample) {
           // Changing bubble size using Math.log function
           size: sampleValues.map(value =>Math.log(value)*10),
           color: otuIDs,
-          colorscale: "Earth"         
+          colorscale: "Rainbow"         
         }
       };
       
