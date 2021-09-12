@@ -53,7 +53,7 @@ function samplePlots(sample) {
         mode: 'markers',
         marker: {
           // Changing bubble size using Math.log function
-          size: sampleValues.map(value =>Math.log(value)*10),
+          size: sampleValues.map(value =>Math.log(value)*14),
           color: otuIDs,
           colorscale: "Earth"         
         }
