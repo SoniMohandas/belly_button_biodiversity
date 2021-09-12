@@ -22,7 +22,8 @@ function samplePlots(sample) {
       // Create the yticks for the bar chart.
       // Get the the top 10 otu_ids and map them in descending order  
         
-      let yticks = otuIDs.slice(0,10).reverse().map(elem => {return `OTU ${elem}`});
+      let yticks = otuIDs.slice(0,10).reverse()
+      .map(elem => {return `OTU-${elem}`});
       let xticks = sampleValues.slice(0,10).reverse();
       let labels = otuLabels.slice(0,10).reverse();
   
@@ -34,7 +35,7 @@ function samplePlots(sample) {
         orientation: 'h',
         text: labels,
         marker: {
-            color: "#9FE2BF"
+            color: "#9FE2BF"            
         }
       };
       // Create the layout for the bar chart. 
@@ -52,6 +53,7 @@ function samplePlots(sample) {
         text: otuLabels,
         mode: 'markers',
         marker: {
+          // Changing bubble size using Math.log function
           size: sampleValues.map(value =>Math.log(value)*10),
           color: otuIDs,
           colorscale: "Earth"         
