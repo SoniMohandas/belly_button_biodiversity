@@ -55,7 +55,7 @@ function samplePlots(sample) {
           // Changing bubble size using Math.log function
           size: sampleValues.map(value =>Math.log(value)*10),
           color: otuIDs,
-          colorscale: "Rainbow"         
+          colorscale: "Earth"         
         }
       };
       
